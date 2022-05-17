@@ -4,6 +4,7 @@ let section1 = document.querySelector('.section1')
 let main1 = document.querySelector('.main1')
 let footer = document.querySelector('.footer1')
 let header = document.querySelector('.header')
+let label = document.querySelector('.label1')
 
 // const start=()=>{
 //     let citys=JSON.parse(localStorage.getItem('citys'))
@@ -100,9 +101,14 @@ function addHtml(data) {
 
 firstweather.addEventListener('keyup', (e) => {
     if (e.key === "Enter") {
+        if(firstweather.value===""){
+            alert('empty')
+        }
+        else{
         weather()
-        header.innerHTML = ""
-        main1.innerHTML = ""
+         header.innerHTML = ""
+          main1.innerHTML = ""
+        }
     }
 })
 
@@ -168,6 +174,7 @@ function weather2() {
 
                 addHtml2(meteo2)
                 console.log(meteo2);
+                secondweather.value=""
             }
 
 
@@ -218,19 +225,31 @@ compare.addEventListener('click', () => {
         compare.style.width="5%"
         compare.style.margin="0"
         remove.style.left="20%"
+        label.style.left="20%"
         
        
     } else {
         section1.style.width = "100%"
         compare.style.width="200px"
-        compare.style.marginLeft="20px 0 0 50%"
+        compare.style.margin="20px 0 0 50%"
         remove.style.left="50%"
+        label.style.left="50%"
+        
     }
 
 })
 
 //add
-add.addEventListener('click', weather2)
+add.addEventListener('click', ()=>{
+    if(secondweather.value===""){
+        alert('empty')
+    }
+    else{
+    weather2()
+     header2.innerHTML = ""
+      main2.innerHTML = ""
+    }
+})
 
 //remove2
 let remove2 = document.createElement('button')

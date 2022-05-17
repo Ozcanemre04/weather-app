@@ -21,6 +21,13 @@ div{
     border-radius: 10px;
     border: none;
 }
+div:hover{
+    background: transparent;
+    font-weight: bolder;
+    color: white;
+    text-shadow: 0 0 5px white;
+}
+
 img{
     flex-basis: 100%;
 }
@@ -69,22 +76,27 @@ img{
   align-items: center;
   flex-direction: column;
   position: fixed;
-  left: 20%;
+  left: 50%;
+  transform: translateX(-50%);
   margin-bottom: 20px;
   background: linear-gradient(90deg, rgba(197,216,226,1) 0%, rgba(48,145,194,1) 40%, rgba(23,103,144,1) 100%);
   padding: 8px;
+  color: white;
   
   
   
 }
 .label2{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   position: fixed;
-  right: 20%;
+  right: 5%;
   margin-bottom: 20px;
   background: linear-gradient(90deg, rgba(197,216,226,1) 0%, rgba(48,145,194,1) 40%, rgba(23,103,144,1) 100%);
   padding: 10px;
+  color: white;
+  width: 30%;
   
 }
 .add{
@@ -95,6 +107,8 @@ img{
     margin-top: 10px;
     color: white;
     border-radius: 10px;
+    width: 30%;
+    margin: 0;
 }
 .add:hover{
     cursor: pointer;
@@ -105,7 +119,7 @@ input{
     border: 1px solid white;
     outline: none;
 color: white;
-padding: 10px;
+padding: 5px;
 border-radius: 10px;
 }
 
