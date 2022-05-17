@@ -6,20 +6,7 @@ let footer = document.querySelector('.footer1')
 let header = document.querySelector('.header')
 let label = document.querySelector('.label1')
 
-// const start=()=>{
-//     let citys=JSON.parse(localStorage.getItem('citys'))
-//     if(!citys){
-//         localStorage.setItem('citys',JSON.stringify([]))
-//     }
-//     else{
-//         for(let elem in citys){
-//             addHtml(citys[elem])
-            
-            
-//         }
-//     }
-// }
-// start()
+
 
 
 function weather() {
@@ -35,14 +22,14 @@ function weather() {
             let datas = data.list
             let h2 = document.createElement('h2')
             header.appendChild(h2)
-            
             h2.innerText = data.city.name
-            section1.style.backgroundImage = "url('https://source.unsplash.com/1000x700/?" + firstweather.value + "')"
-            // let citys=JSON.parse(localStorage.getItem('citys'))
-            // citys.push(h2.innerText)
-            // localStorage.setItem('citys',JSON.stringify(citys))
-
-            for (let i = 0; i < datas.length; i++) {
+            
+            
+                let url="url('https://source.unsplash.com/1920x700/?" + firstweather.value + "')"
+                section1.style.backgroundImage =url
+              
+            
+                for (let i = 0; i < datas.length; i++) {
                 let meteo = {
                     wind: datas[i].wind.speed,
                     icon: "http://openweathermap.org/img/w/" + datas[i].weather.map(icon => icon.icon).join(' ') + ".png",
@@ -52,14 +39,14 @@ function weather() {
                     humidity: datas[i].main.humidity,
 
                 }
-                // let citys=JSON.parse(localStorage.getItem('citys'))
-                //  citys.push(meteo)
+                
                 
                 addHtml(meteo)
                 
-                // localStorage.setItem('citys',JSON.stringify(citys))
-                // location.reload()
-                firstweather.value = ""
+                
+                 firstweather.value = ""
+        
+
                 
 
             }
@@ -94,9 +81,7 @@ function addHtml(data) {
     let date = document.createElement('p')
     div.appendChild(date)
     date.innerText = data.date
-    // let citys=JSON.parse(localStorage.getItem('citys'))
-    // localStorage.setItem('citys',JSON.stringify(citys))
-
+   
 }
 
 firstweather.addEventListener('keyup', (e) => {
@@ -106,6 +91,7 @@ firstweather.addEventListener('keyup', (e) => {
         }
         else{
         weather()
+        
          header.innerHTML = ""
           main1.innerHTML = ""
         }
@@ -126,12 +112,7 @@ remove.addEventListener('click', (e) => {
 
     
     c.textContent = ""
-    // let citys=JSON.parse(localStorage.getItem('citys'))
-    // window.localStorage.removeItem('citys')
-    //  localStorage.setItem('citys',JSON.stringify(citys))
-
-
-
+  
 })
 
 //second
