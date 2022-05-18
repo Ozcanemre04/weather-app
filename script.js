@@ -9,7 +9,7 @@ let label = document.querySelector('.label1')
 
 
 
-function weather() {
+function weatherFetch() {
     
     let names = firstweather.value
     
@@ -41,7 +41,7 @@ function weather() {
                 }
                 
                 
-                addHtml(meteo)
+              displayWeather(meteo)
                 
                 
                  firstweather.value = ""
@@ -56,7 +56,7 @@ function weather() {
 
 }
 
-function addHtml(data) {
+function displayWeather(data) {
 
 
 
@@ -90,7 +90,7 @@ firstweather.addEventListener('keyup', (e) => {
             alert('empty')
         }
         else{
-        weather()
+        weatherFetch()
         
          header.innerHTML = ""
           main1.innerHTML = ""
@@ -103,17 +103,15 @@ let remove = document.createElement('button')
 remove.className="remove1"
 footer.appendChild(remove)
 remove.innerText = "remove"
-remove.addEventListener('click', (e) => {
-    let b = e.target.parentElement.parentElement.children[1].firstChild
-    let c = e.target.parentElement.parentElement.children[2]
-    if (b) {
-        b.remove();
-    }
 
+function removeElement(e){
+    let removeMainChidlren = e.target.parentElement.parentElement.children[1].firstChild
+    let removeHeaderText = e.target.parentElement.parentElement.children[2]
     
-    c.textContent = ""
-  
-})
+    removeMainChidlren.remove();
+    removeHeaderText.textContent = ""
+}
+remove.addEventListener('click',removeElement)
 
 //second
 let section2 = document.querySelector('.section2')
@@ -124,7 +122,7 @@ let secondweather = document.querySelector('.secondweather')
 let footer2 = document.querySelector('.footer2')
 
 
-function weather2() {
+function weatherFetch2() {
     let names = secondweather.value
 
 
@@ -153,7 +151,7 @@ function weather2() {
 
 
 
-                addHtml2(meteo2)
+                displayWeather2(meteo2)
                 console.log(meteo2);
                 secondweather.value=""
             }
@@ -163,7 +161,7 @@ function weather2() {
 
 }
 
-function addHtml2(data) {
+function displayWeather2(data) {
 
 
 
@@ -226,7 +224,7 @@ add.addEventListener('click', ()=>{
         alert('empty')
     }
     else{
-    weather2()
+    weatherFetch2()
      header2.innerHTML = ""
       main2.innerHTML = ""
     }
@@ -237,11 +235,4 @@ let remove2 = document.createElement('button')
 remove2.className="remove2"
 footer2.appendChild(remove2)
 remove2.innerText = "remove"
-remove2.addEventListener('click', (e) => {
-    let b = e.target.parentElement.parentElement.children[1].firstChild
-
-    b.remove()
-    let c = e.target.parentElement.parentElement.children[2]
-    console.log(c);
-    c.textContent = ""
-})
+remove2.addEventListener('click',removeElement)
